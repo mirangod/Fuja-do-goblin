@@ -30,6 +30,10 @@ public class player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Player colidiu com: " + collision.gameObject.name);
+
+        GameObject.Find("Admin").GetComponent<admin>().PlayerMorreu(collision.collider);
+
         if (collision.gameObject.CompareTag("Círculo"))
         {
             GameObject.Find("Feedback").GetComponent<TextMeshProUGUI>().text = "VOCÊ GANHOU!";
